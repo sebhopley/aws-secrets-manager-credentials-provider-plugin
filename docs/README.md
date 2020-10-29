@@ -12,6 +12,7 @@ This plugin is the high-level counterpart of the [AWS Secrets Manager SecretSour
 - [Authentication](authentication/index.md)
 - [Beta Features](beta/index.md)
 - [Caching](caching/index.md)
+- [Client](client/index.md)
 - [Filters](filters/index.md)
 - [Networking](networking/index.md)
 - [Screenshots](screenshots/index.md)
@@ -345,11 +346,14 @@ You can set plugin configuration using Jenkins [Configuration As Code](https://g
 ```yaml
 unclassified:
   awsCredentialsProvider:
-    cache: (boolean)           # optional
-    endpointConfiguration:     # optional
-      serviceEndpoint: (URL)
-      signingRegion: (string)
-    listSecrets:               # optional
+    cache: (boolean)                 # optional
+    client:                          # optional
+      credentialsProvider: (object)  # optional
+      endpointConfiguration:         # optional
+        serviceEndpoint: (URL)
+        signingRegion: (string)
+      region: (string)               # optional
+    listSecrets:                     # optional
       filters:
         - key: name
           values:
